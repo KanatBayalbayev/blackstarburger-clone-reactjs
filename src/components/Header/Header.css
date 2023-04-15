@@ -1,0 +1,67 @@
+.header {
+  height: 250px;
+  border-bottom: 1px solid black;
+}
+.header .main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 25px 45px;
+}
+.header .main .imgLogo {
+  width: 100px;
+  cursor: pointer;
+}
+.header .main .social-icons .facebookIcon {
+  margin-right: 10px;
+  cursor: pointer;
+}
+.header .main .social-icons .instagramIcon {
+  cursor: pointer;
+}
+.header .line {
+  width: 80rem;
+  color: orange;
+}
+.header .navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+}
+.header .navbar .list {
+  display: flex;
+}
+.header .navbar .list li {
+  display: inline-block;
+  position: relative;
+  margin-right: 30px;
+  list-style: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  font-size: 15px;
+  transform-origin: bottom top;
+  transition: transform 0.7s ease-out;
+  cursor: pointer;
+}
+.header .navbar .list li::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: red;
+  transform-origin: bottom top;
+  transition: transform 0.4s ease-out;
+}
+.header .navbar .list li:hover {
+  transform-origin: bottom bottom;
+  color: red;
+}
+.header .navbar .list li:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom bottom;
+}/*# sourceMappingURL=Header.css.map */

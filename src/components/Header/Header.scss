@@ -1,0 +1,69 @@
+.header {
+  height: 250px;
+  border-bottom: 1px solid black;
+  .main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 25px 45px;
+    .imgLogo {
+      width: 100px;
+      cursor: pointer;
+    }
+    .social-icons {
+      .facebookIcon {
+        margin-right: 10px;
+        cursor: pointer;
+      }
+      .instagramIcon {
+        cursor: pointer;
+      }
+    }
+  }
+  .line {
+    width: 80rem;
+    color: orange;
+  }
+  .navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+    .list {
+      display: flex;
+      li {
+        display: inline-block;
+        position: relative;
+        margin-right: 30px;
+        list-style: none;
+        text-transform: uppercase;
+        font-weight: bold;
+        letter-spacing: 0.5px;
+        font-size: 15px;
+        transform-origin: bottom top;
+        transition: transform 0.7s ease-out;
+        cursor: pointer;
+        &::after {
+          content: "";
+          position: absolute;
+          width: 100%;
+          transform: scaleX(0);
+          height: 2px;
+          bottom: 0;
+          left: 0;
+          background-color: red;
+          transform-origin: bottom top;
+          transition: transform 0.4s ease-out;
+        }
+        &:hover {
+          transform-origin: bottom bottom;
+          color: red;
+        }
+        &:hover::after {
+          transform: scaleX(1);
+          transform-origin: bottom bottom;
+        }
+      }
+    }
+  }
+}
