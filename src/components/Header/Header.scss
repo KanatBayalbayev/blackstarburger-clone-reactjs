@@ -1,6 +1,7 @@
 .header {
   height: 250px;
   border-bottom: 1px solid black;
+  letter-spacing: 0.5px;
   .main {
     display: flex;
     align-items: center;
@@ -38,7 +39,7 @@
         list-style: none;
         text-transform: uppercase;
         font-weight: bold;
-        letter-spacing: 0.5px;
+
         font-size: 15px;
         transform-origin: bottom top;
         transition: transform 0.7s ease-out;
