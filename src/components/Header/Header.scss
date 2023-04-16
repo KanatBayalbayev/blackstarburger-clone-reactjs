@@ -32,14 +32,15 @@
     padding: 10px 0;
     .list {
       display: flex;
-      li {
+      .li {
+        color: black;
+        text-decoration: none;
+        list-style: none;
         display: inline-block;
         position: relative;
         margin-right: 30px;
-        list-style: none;
         text-transform: uppercase;
         font-weight: bold;
-
         font-size: 15px;
         transform-origin: bottom top;
         transition: transform 0.7s ease-out;
@@ -64,6 +65,12 @@
           transform: scaleX(1);
           transform-origin: bottom bottom;
         }
+      }
+      .active {
+        text-decoration: underline;
+        color: gray;
+        text-decoration-color: red;
+        pointer-events: none;
       }
     }
   }

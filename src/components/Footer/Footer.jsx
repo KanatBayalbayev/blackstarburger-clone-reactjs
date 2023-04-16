@@ -3,6 +3,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCopyright } from "@fortawesome/free-regular-svg-icons";
 import { faFacebook, faInstagram } from "@fortawesome/free-brands-svg-icons";
 import mainLogo from "../../assets/Frame.png";
+import appStore from "../../assets/appstore.png";
+import googlePlay from "../../assets/googleplay.png";
 import "./Footer.scss";
 
 const Footer = () => {
@@ -55,6 +57,16 @@ const Footer = () => {
             Юридический адрес: Казахстан, город Алматы, 050051, район Медеуский,
           </p>
           <p>ул.Фонвизина, дом 30/8, БИН: 190140030597</p>
+        </div>
+      </div>
+      <div className="forth-footer-section">
+        <h1>Приложение Black Star Burger KZ</h1>
+        <p>Скачивай наше приложение для смартфонов и получай бонусы!</p>
+        <p>Уже доступно для iOS и Android</p>
+        <div className="links-to-download">
+          <img src={appStore} alt="appStore" className="appStore link-to-download"/>
+          <img src={googlePlay} alt="appStore" className="googlePlay link-to-download"/>
+
         </div>
       </div>
     </footer>

@@ -1,5 +1,15 @@
-.main{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 230px 0px 400px;
+  img {
+    width: 370px;
+    cursor: pointer;
+  }
+  .franchiseGlav {
+    height: 178px;
+    margin-left: 50px;
+    margin-right: 50px;
+  }
 }

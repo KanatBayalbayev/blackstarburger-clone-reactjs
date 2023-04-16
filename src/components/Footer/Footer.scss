@@ -7,7 +7,7 @@
   justify-content: center;
   .first-footer-section {
     display: flex;
-    justify-content: center;
+    // justify-content: center;
     padding: 50px 140px;
     img {
       width: 120px;
@@ -32,6 +32,7 @@
           margin-bottom: 5px;
           color: white;
           cursor: pointer;
+          font-size: 13px;
         }
       }
     }
@@ -57,6 +58,40 @@
     //   .copyright{
     //     font-size: 20px;
     //   }
+    }
+  }
+  .forth-footer-section{
+    // background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    // margin-top: 70px;
+    padding: 70px;
+    h1{
+      font-weight: bold;
+      font-size: 35px;
+      letter-spacing: -1px;
+      color: white;
+    }
+    p{
+      color: white;
+      margin-top: -5px;
+    }
+    .links-to-download{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .link-to-download{
+        cursor: pointer;
+      }
+      .appStore{
+        width: 230px;
+      }
+      .googlePlay{
+        width: 280px;
+        height: 112px;
+      }
     }
   }
 }
