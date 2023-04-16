@@ -1,1 +1,54 @@
-/*# sourceMappingURL=AboutUs.css.map */
+.aboutUS-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.aboutUS-container img {
+  width: 1403px;
+}
+.aboutUS-container .hrAboutUS {
+  margin-top: 70px;
+  width: 800px;
+}
+.aboutUS-container .accordion-container {
+  margin-top: 30px;
+  margin-bottom: 100px;
+}
+.aboutUS-container .accordion-container .accordion-item {
+  display: flex;
+  flex-direction: column;
+  transition: 0.4s;
+  outline: none;
+}
+.aboutUS-container .accordion-container .accordion-item .hrItem {
+  margin: 30px 0;
+  width: 800px;
+}
+.aboutUS-container .accordion-container .accordion-item .accordion-title {
+  cursor: pointer;
+  width: 800px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.aboutUS-container .accordion-container .accordion-item .accordion-title .accordion-title-name {
+  font-weight: bold;
+  font-size: 23px;
+  text-transform: uppercase;
+}
+.aboutUS-container .accordion-container .accordion-item .accordion-title .accordion-title-sign {
+  padding: 0px 10px;
+  font-size: 40px;
+  cursor: pointer;
+}
+.aboutUS-container .accordion-container .accordion-item .accordion-title:hover .accordion-title-sign {
+  background-color: rgb(248, 241, 241);
+  border-radius: 50%;
+}
+.aboutUS-container .accordion-container .accordion-item .accordion-content {
+  letter-spacing: 1px;
+  margin-top: 30px;
+  width: 800px;
+  transition: max-height 0.4s ease-out;
+}/*# sourceMappingURL=AboutUs.css.map */

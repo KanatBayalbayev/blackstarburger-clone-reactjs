@@ -1,0 +1,57 @@
+.aboutUS-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  img {
+    width: 1403px;
+  }
+  .hrAboutUS {
+    // position: absolute;
+    margin-top: 70px;
+    width: 800px;
+  }
+  .accordion-container {
+    margin-top: 30px;
+    margin-bottom: 100px;
+    .accordion-item {
+      display: flex;
+      flex-direction: column;
+      transition: 0.4s;
+      outline: none;
+      .hrItem {
+        margin: 30px 0;
+        width: 800px;
+      }
+      .accordion-title {
+        cursor: pointer;
+        width: 800px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        // border: 1px solid black;
+        .accordion-title-name {
+          font-weight: bold;
+          font-size: 23px;
+          text-transform: uppercase;
+        }
+        .accordion-title-sign {
+          padding: 0px 10px;
+          font-size: 40px;
+          cursor: pointer;
+        }
+        &:hover .accordion-title-sign {
+          background-color: rgb(248, 241, 241);
+          border-radius: 50%;
+        }
+      }
+      .accordion-content {
+        letter-spacing: 1px;
+        margin-top: 30px;
+        width: 800px;
+        transition: max-height 0.4s ease-out;
+        // border: 1px solid red;
+      }
+    }
+  }
+}

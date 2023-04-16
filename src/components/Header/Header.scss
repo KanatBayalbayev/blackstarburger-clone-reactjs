@@ -1,6 +1,7 @@
 .header {
   height: 250px;
-  border-bottom: 1px solid black;
+  // border-bottom: 2.3px solid lightgray;
+  // box-shadow: 0 2px 4px 0 lightgray;
   letter-spacing: 0.5px;
   .main {
     display: flex;
@@ -23,7 +24,7 @@
   }
   .line {
     width: 80rem;
-    color: orange;
+    border-top: 1px gray;
   }
   .navbar {
     display: flex;

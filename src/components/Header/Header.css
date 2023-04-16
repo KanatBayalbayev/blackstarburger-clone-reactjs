@@ -1,6 +1,5 @@
 .header {
   height: 250px;
-  border-bottom: 1px solid black;
   letter-spacing: 0.5px;
 }
 .header .main {
@@ -22,7 +21,7 @@
 }
 .header .line {
   width: 80rem;
-  color: orange;
+  border-top: 1px gray;
 }
 .header .navbar {
   display: flex;
