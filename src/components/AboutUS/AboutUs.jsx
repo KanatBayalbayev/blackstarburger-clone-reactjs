@@ -5,7 +5,7 @@ import "./AboutUs.scss";
 const AboutUs = () => {
   const [indexItem, setIndexItem] = useState(null);
 
-  const toggle = (i) => {
+  const handleClick = (i) => {
     setIndexItem(indexItem === i ? null : i);
   };
   return (
@@ -16,16 +16,25 @@ const AboutUs = () => {
         <div className="accordion">
           {accordionData.map((data, index) => (
             <div className="accordion-item" key={data.title}>
-              <div className="accordion-title" onClick={() => toggle(index)}>
+              <div
+                className="accordion-title"
+                onClick={() => handleClick(index)}
+              >
                 <div className="accordion-title-name">{data.title}</div>
-                <div className="accordion-title-sign">
-                  {indexItem === index ? "-" : "+"}
+                <div className={`plus ${indexItem === index ? "open" : ""}`}>
+                  <span className="line line1"></span>
+                  <span className="line line2"></span>
                 </div>
               </div>
 
-              {indexItem === index && (
-                <p className="accordion-content">{data.description}</p>
-              )}
+              <div
+                className={`accordion-content ${
+                  indexItem === index ? "visible" : ""
+                }`}
+              >
+                <p>{data.description}</p>
+              </div>
+
               <hr className="hrItem" />
             </div>
           ))}
