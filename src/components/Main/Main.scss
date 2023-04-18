@@ -1,8 +1,10 @@
 .main {
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   padding: 230px 0px 400px;
+  margin-bottom: -50px;
   img {
     width: 370px;
     cursor: pointer;

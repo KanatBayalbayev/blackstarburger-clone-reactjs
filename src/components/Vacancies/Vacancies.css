@@ -1,0 +1,66 @@
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: 1px;
+}
+main img {
+  width: 1403px;
+}
+main .title {
+  width: 600px;
+  line-height: 35px;
+  text-align: center;
+  font-size: 23px;
+  margin: 50px 0;
+}
+main .title .span {
+  text-decoration: none;
+  color: #ff8562;
+}
+main .grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  row-gap: 40px;
+  -moz-column-gap: 40px;
+       column-gap: 40px;
+  margin: 40px 0 90px;
+}
+main .grid-container .card {
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 10px 0px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 50px 20px 10px;
+  width: 300px;
+  border: 1px solid lightgray;
+}
+main .grid-container .card h3 {
+  margin-left: 22px;
+}
+main .grid-container .card p {
+  margin-left: 22px;
+  margin-top: -5px;
+  font-size: 13px;
+  font-weight: bold;
+  color: #f96f49;
+}
+main .grid-container .card ul {
+  margin-top: -5px;
+}
+main .grid-container .card ul li {
+  font-size: 16px;
+  line-height: 1.55;
+  font-family: "Roboto", Arial, sans-serif;
+  font-weight: 300;
+  color: #000000;
+}
+main .grid-container .card a {
+  text-decoration: none;
+  margin-left: 22px;
+  font-weight: bold;
+  color: #f96f49;
+  font-size: 14px;
+}/*# sourceMappingURL=Vacancies.css.map */

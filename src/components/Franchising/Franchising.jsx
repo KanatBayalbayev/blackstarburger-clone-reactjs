@@ -16,22 +16,19 @@ import "./Franchising.scss";
 const Franchising = () => {
   const [isValid, setIsValid] = useState("");
   const [isSent, setIsSent] = useState(false);
-  const [isInputEmpty, setIsInputEmpty] = useState(true);
+  const [isInputEmpty, setIsInputEmpty] = useState(false);
 
   const inputHandler = (event) => {
     setIsValid(event.target.value);
   };
-  
+
   const formHandler = (event) => {
-    if (isValid.trim() === "") {
-      setIsSent(false);
-    } else {
-      setIsSent(true);
-    }
-    setIsInputEmpty(false);
+    setIsSent(isValid.trim() === "" ? false : true);
+
+    setIsInputEmpty(true);
     event.preventDefault();
   };
-  
+
   return (
     <main className="franchising-container">
       <img src={franImg} alt="franImg" />
@@ -138,9 +135,9 @@ const Franchising = () => {
               placeholder="Ваше имя"
               autoComplete="off"
               onChange={inputHandler}
-              
+              className={isInputEmpty && "name"}
             />
-            {!isInputEmpty && (
+            {isInputEmpty && (
               <p className="restrictedField">Обязательное поле</p>
             )}
             <br />
@@ -161,7 +158,7 @@ const Franchising = () => {
               placeholder="Ваш город"
               autoComplete="off"
             />
-            {!isInputEmpty  && (
+            {isInputEmpty && (
               <p className="error-container">
                 Пожалуйста, заполните все обязательные поля
               </p>

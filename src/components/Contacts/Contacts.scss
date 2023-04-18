@@ -1,0 +1,71 @@
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 150px;
+  img {
+    width: 1403px;
+  }
+  .cities {
+    margin-top: 60px;
+    margin-bottom: 100px;
+    .cityCon {
+      position: relative;
+      display: inline-block;
+      cursor: pointer;
+      .city {
+        text-align: center;
+
+        font-size: 17px;
+        margin-left: 100px;
+        margin-right: 100px;
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -17px; /* adjust as needed */
+        width: 100%;
+        border-bottom: 1px solid lightgray; /* or any color you want */
+      }
+    }
+    .active {
+      position: relative;
+      display: inline-block;
+      font-weight: bold;
+      &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -17px; /* adjust as needed */
+        width: 100%;
+        border-bottom: 1px solid black; /* or any color you want */
+      }
+    }
+  }
+  .city-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .map {
+      margin-left: 250px;
+      img {
+        width: 600px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+    }
+    .city-info{
+        ol{
+            margin-left: -20px;
+            li{
+                line-height: 35px;
+            }
+        }
+        a{
+            color: black;
+        }
+    }
+  }
+}

@@ -5,6 +5,7 @@
   align-items: center;
   background-color: black;
   color: white;
+  margin-bottom: -10px;
 }
 .franchising-container img {
   width: 1403px;
@@ -104,6 +105,9 @@
 .franchising-container form input:focus {
   outline: none;
 }
+.franchising-container form .name {
+  border: solid 1px red;
+}
 .franchising-container form button {
   border: none;
   padding: 20px 50px;
@@ -112,7 +116,7 @@
   background-color: white;
   font-size: 15px;
   letter-spacing: -0.3px;
-  margin-bottom: 110px;
+  margin-bottom: 120px;
   cursor: pointer;
 }
 .franchising-container form .error-container {
@@ -137,5 +141,5 @@
   font-size: 20px;
   text-align: center;
   padding-top: 20px;
-  margin-bottom: 150px;
+  margin-bottom: 120px;
 }/*# sourceMappingURL=Franchising.css.map */

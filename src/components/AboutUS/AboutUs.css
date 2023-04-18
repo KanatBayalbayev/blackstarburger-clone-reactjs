@@ -3,6 +3,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-bottom: 50px;
 }
 .aboutUS-container img {
   width: 1403px;
@@ -13,7 +14,6 @@
 }
 .aboutUS-container .accordion-container {
   margin-top: 30px;
-  margin-bottom: 100px;
 }
 .aboutUS-container .accordion-container .accordion-item {
   display: flex;

@@ -5,6 +5,7 @@
   align-items: center;
   background-color: black;
   color: white;
+  margin-bottom: -10px;
   img {
     width: 1403px;
   }
@@ -103,6 +104,9 @@
         outline: none;
       }
     }
+    .name {
+      border: solid 1px red;
+    }
     button {
       border: none;
       padding: 20px 50px;
@@ -111,11 +115,12 @@
       background-color: white;
       font-size: 15px;
       letter-spacing: -0.3px;
-      margin-bottom: 110px;
+      margin-bottom: 120px;
       cursor: pointer;
     }
+    
     .error-container {
-    //   border: 1px solid red;
+      //   border: 1px solid red;
       background-color: rgb(255, 57, 57);
       width: 722px;
       height: 40px;
@@ -139,6 +144,6 @@
     font-size: 20px;
     text-align: center;
     padding-top: 20px;
-    margin-bottom: 150px;
+    margin-bottom: 120px;
   }
 }

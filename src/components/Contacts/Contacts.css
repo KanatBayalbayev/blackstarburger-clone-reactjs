@@ -1,0 +1,68 @@
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 150px;
+}
+main img {
+  width: 1403px;
+}
+main .cities {
+  margin-top: 60px;
+  margin-bottom: 100px;
+}
+main .cities .cityCon {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+main .cities .cityCon .city {
+  text-align: center;
+  font-size: 17px;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+main .cities .cityCon::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -17px; /* adjust as needed */
+  width: 100%;
+  border-bottom: 1px solid lightgray; /* or any color you want */
+}
+main .cities .active {
+  position: relative;
+  display: inline-block;
+  font-weight: bold;
+}
+main .cities .active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -17px; /* adjust as needed */
+  width: 100%;
+  border-bottom: 1px solid black; /* or any color you want */
+}
+main .city-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main .city-container .map {
+  margin-left: 250px;
+}
+main .city-container .map img {
+  width: 600px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+main .city-container .city-info ol {
+  margin-left: -20px;
+}
+main .city-container .city-info ol li {
+  line-height: 35px;
+}
+main .city-container .city-info a {
+  color: black;
+}/*# sourceMappingURL=Contacts.css.map */
