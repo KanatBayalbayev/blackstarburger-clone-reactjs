@@ -3,6 +3,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import "./Menu.scss";
 import items from "./menuItems";
+import DeliveryModal from "./modals/DeliveryModal";
+import MeniItem from "./MeniItem";
+import ItemModal from "./ItemModal";
 
 const categories = [
   "Все",
@@ -22,6 +25,11 @@ const categories = [
 const Menu = () => {
   const [categoryName, setCategory] = useState("Все");
   const [name, setName] = useState("");
+  const [deliveryName, setDeliveryName] = useState("");
+  const [showModal, setShowModal] = useState(false);
+
+  const [nameModal, setNameModal] = useState("");
+
   const categoryHandler = (category) => {
     setCategory(category);
     console.log(category);
@@ -29,41 +37,69 @@ const Menu = () => {
   const text = (event) => {
     setName(event.target.value);
   };
+  const [open, setOpen] = useState(false);
+  const handleOpenModalItem = (name) => {
+    setOpen(true);
+    setNameModal(name);
+  };
 
   const all = items.map((item) => (
-    <div key={item.id} className="item-container">
-      <img src={item.img} alt={`${item.name}`} />
-      <h3>{item.name}</h3>
-      <p>{`${item.price} тг.`}</p>
-    </div>
+    <MeniItem
+      key={item.id}
+      img={item.img}
+      name={item.name}
+      price={item.price}
+      onOpen={handleOpenModalItem}
+    />
   ));
+
   const particularCategory = items
     .filter((item) => item.category === categoryName)
     .map((item) => (
-      <div key={item.id} className="item-container">
-        <img src={item.img} alt={`${item.name}`} />
-        <h3>{item.name}</h3>
-        <p>{`${item.price} тг.`}</p>
-      </div>
+      <MeniItem
+        key={item.id}
+        img={item.img}
+        name={item.name}
+        price={item.price}
+        onOpen={handleOpenModalItem}
+      />
     ));
 
   const particularName = items
     .filter((item) => item.name.includes(name.toUpperCase()))
     .map((item) => (
-      <div key={item.id} className="item-container">
-        <img src={item.img} alt={`${item.name}`} />
-        <h3>{item.name}</h3>
-        <p>{`${item.price} тг.`}</p>
-      </div>
+      <MeniItem
+        key={item.id}
+        img={item.img}
+        name={item.name}
+        price={item.price}
+        onOpen={handleOpenModalItem}
+      />
     ));
 
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
+
+  const handleDeliveryName = (name) => {
+    setDeliveryName(name);
+    setShowModal(true);
+  };
+  const handleCloseItemModal = () => {
+    setOpen(false);
+  };
   return (
-    <main>
+    <main className="menu-container">
       <div className="links">
-        <button>glovo</button>
-        <button>chocofood</button>
-        <button>wolt</button>
+        <button onClick={() => handleDeliveryName("Glovo")}>glovo</button>
+        <button onClick={() => handleDeliveryName("Chocofood")}>
+          chocofood
+        </button>
+        <button onClick={() => handleDeliveryName("Wolt")}>wolt</button>
       </div>
+      {showModal && (
+        <DeliveryModal onClose={handleCloseModal} name={deliveryName} />
+      )}
       <div className="categories-container">
         <ul>
           {categories.map((category) => (
@@ -88,6 +124,7 @@ const Menu = () => {
           ? all
           : particularCategory}
       </div>
+      {open && <ItemModal name={nameModal} onClose={handleCloseItemModal}/>}
     </main>
   );
 };

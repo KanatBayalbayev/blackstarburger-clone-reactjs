@@ -8,6 +8,7 @@ import Menu from "./components/Menu/Menu";
 import Franchising from "./components/Franchising/Franchising";
 import Vacancies from "./components/Vacancies/Vacancies";
 import Contacts from "./components/Contacts/Contacts";
+import "./App.css";
 
 const App = () => {
   return (

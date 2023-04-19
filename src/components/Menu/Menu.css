@@ -1,4 +1,4 @@
-main {
+.menu-container {
   position: relative;
   padding-top: 100px;
   border-top: 2px solid lightgray;
@@ -6,14 +6,14 @@ main {
   justify-content: center;
   align-items: center;
 }
-main .links {
+.menu-container .links {
   position: fixed;
   margin-top: -3260px;
   margin-left: 1200px;
   display: flex;
   flex-direction: column;
 }
-main .links button {
+.menu-container .links button {
   margin-bottom: 20px;
   cursor: pointer;
   padding: 10px 15px;
@@ -23,61 +23,61 @@ main .links button {
   font-size: 15px;
   border-radius: 5px;
 }
-main .links button:nth-child(1) {
+.menu-container .links button:nth-child(1) {
   background-color: #f09c00;
 }
-main .links button:nth-child(2) {
+.menu-container .links button:nth-child(2) {
   background-color: #f00000;
 }
-main .links button:nth-child(3) {
+.menu-container .links button:nth-child(3) {
   background-color: #0084f0;
 }
-main .categories-container ul {
+.menu-container .categories-container ul {
   padding: 0 10px;
   display: flex;
   list-style: none;
 }
-main .categories-container ul li {
+.menu-container .categories-container ul li {
   margin: 0px 11px;
   font-size: 15px;
   font-weight: bolder;
   cursor: pointer;
   letter-spacing: normal;
 }
-main .categories-container .search-container {
+.menu-container .categories-container .search-container {
   margin-top: 50px;
   margin-left: 1000px;
 }
-main .categories-container .search-container input {
+.menu-container .categories-container .search-container input {
   outline: none;
   padding: 5px;
   border-radius: 5px;
   border: 1px solid gray;
 }
-main .categories-container .search-container .icon {
+.menu-container .categories-container .search-container .icon {
   position: absolute;
   margin-left: -25px;
   margin-top: 5px;
 }
-main .active {
+.menu-container .active {
   color: gray;
 }
-main .items-container {
+.menu-container .items-container {
   margin-top: 50px;
   display: grid;
   grid-template-columns: auto auto auto;
   gap: 70px 30px;
 }
-main .items-container .item-container {
+.menu-container .items-container .item-container {
   cursor: pointer;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 400px;
 }
-main .items-container .item-container img {
+.menu-container .items-container .item-container img {
   width: 400px;
 }
-main .items-container .item-container p {
+.menu-container .items-container .item-container p {
   margin-top: -5px;
 }/*# sourceMappingURL=Menu.css.map */

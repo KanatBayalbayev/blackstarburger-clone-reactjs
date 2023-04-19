@@ -1,4 +1,4 @@
-main {
+.menu-container {
   position: relative;
   padding-top: 100px;
   border-top: 2px solid lightgray;
@@ -65,7 +65,7 @@ main {
       }
     }
   }
-  .active{
+  .active {
     color: gray;
   }
   .items-container {
