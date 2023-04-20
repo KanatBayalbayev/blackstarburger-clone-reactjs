@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
@@ -9,11 +9,39 @@ import Franchising from "./components/Franchising/Franchising";
 import Vacancies from "./components/Vacancies/Vacancies";
 import Contacts from "./components/Contacts/Contacts";
 import "./App.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircleArrowUp } from "@fortawesome/free-solid-svg-icons";
 
 const App = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      const isVisible = currentScrollY > 300;
+      setIsVisible(isVisible);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const handleClick = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <>
       <BrowserRouter>
+        <FontAwesomeIcon
+          icon={faCircleArrowUp}
+          className={`scroll-to-top-button ${isVisible ? "visible" : ""}`}
+          onClick={handleClick}
+        />
+
         <Header />
         <Routes>
           <Route index path="*" element={<Main />} />

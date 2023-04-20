@@ -102,11 +102,14 @@ const Menu = () => {
   // cart state
   /////////////////////////////////////////////////
   const [cartArray, setCartArray] = useState([]);
-
+  const [totalPrice, setTotalPrice] = useState(0);
+  const [totalPriceItem, setTotalPriceItem] = useState(0);
+  const handleTotalPrice = (price) => {
+    setTotalPriceItem(totalPriceItem + price);
+  };
   const getItemObject = (object) => {
     if (!cartArray.some((item) => item.id === object.id)) {
       setCartArray((cartArray) => [...cartArray, object]);
-      console.log(cartArray.some((item) => item.id === object.id));
     }
   };
 
@@ -116,7 +119,7 @@ const Menu = () => {
         return {
           ...item,
           amount: item.amount + 1,
-          price: item.amount * item.price,
+          // price: item.price * item.amount,
         };
       }
       return item;
@@ -138,27 +141,18 @@ const Menu = () => {
     const updatedList = cartArray.filter((item) => item.id !== id);
     setCartArray(updatedList);
   };
-
-  console.log(cartArray);
-
+  // const totalPrice = cartArray.reduce((total, item) => total + item.price, 0);
+  const minusTotalPrice = (itemPrice) => {
+    setTotalPrice(totalPrice - itemPrice);
+  };
+  const plusTotalPrice = (itemPrice) => {
+    setTotalPrice(totalPrice + itemPrice);
+  };
+  const updateTotalPrice = (itemPrice) => {
+    setTotalPrice(totalPrice - itemPrice);
+  };
   return (
-    <main className="menu-container">
-      <div className="cart-container">
-        <FontAwesomeIcon
-          icon={faCartShopping}
-          className="cart"
-          onClick={handleOpenCart}
-        />
-      </div>
-      {cart && (
-        <Cart
-          onClose={handleCloseCart}
-          burgers={cartArray}
-          increase={handleIncreaseItems}
-          decrease={handleDecreaseItems}
-          remove={handleRemoveItem}
-        />
-      )}
+    <>
       <div className="links">
         <button onClick={() => handleDeliveryName("Glovo")}>glovo</button>
         <button onClick={() => handleDeliveryName("Chocofood")}>
@@ -166,41 +160,66 @@ const Menu = () => {
         </button>
         <button onClick={() => handleDeliveryName("Wolt")}>wolt</button>
       </div>
-      {showModal && (
-        <DeliveryModal onClose={handleCloseModal} name={deliveryName} />
-      )}
-      <div className="categories-container">
-        <ul>
-          {categories.map((category) => (
-            <li
-              key={category}
-              onClick={() => categoryHandler(category)}
-              className={category === categoryName && "active"}
-            >
-              {category}
-            </li>
-          ))}
-        </ul>
-        <div className="search-container">
-          <input type="text" placeholder="Поиск" onChange={text} />
-          <FontAwesomeIcon icon={faMagnifyingGlass} className="icon" />
-        </div>
-      </div>
-      <div className="items-container">
-        {name
-          ? particularName
-          : categoryName === "Все"
-          ? all
-          : particularCategory}
-      </div>
-      {open && (
-        <ItemModal
-          name={nameModal}
-          onClose={handleCloseItemModal}
-          onGetItemObject={getItemObject}
+      <div className="cart-container">
+        <FontAwesomeIcon
+          icon={faCartShopping}
+          className="cart"
+          onClick={handleOpenCart}
         />
-      )}
-    </main>
+      </div>
+      <main className="menu-container">
+        {cart && (
+          <Cart
+            onClose={handleCloseCart}
+            burgers={cartArray}
+            increase={handleIncreaseItems}
+            decrease={handleDecreaseItems}
+            remove={handleRemoveItem}
+            totalPrice={totalPrice}
+            minusTotalPrice={minusTotalPrice}
+            plusTotalPrice={plusTotalPrice}
+            totalPriceItem={totalPriceItem}
+            updateTotalPrice={updateTotalPrice}
+          />
+        )}
+
+        {showModal && (
+          <DeliveryModal onClose={handleCloseModal} name={deliveryName} />
+        )}
+        <div className="categories-container">
+          <ul>
+            {categories.map((category) => (
+              <li
+                key={category}
+                onClick={() => categoryHandler(category)}
+                className={category === categoryName && "active"}
+              >
+                {category}
+              </li>
+            ))}
+          </ul>
+          <div className="search-container">
+            <input type="text" placeholder="Поиск" onChange={text} />
+            <FontAwesomeIcon icon={faMagnifyingGlass} className="icon" />
+          </div>
+        </div>
+        <div className="items-container">
+          {name
+            ? particularName
+            : categoryName === "Все"
+            ? all
+            : particularCategory}
+        </div>
+        {open && (
+          <ItemModal
+            name={nameModal}
+            onClose={handleCloseItemModal}
+            onGetItemObject={getItemObject}
+            handleTotalPrice={handleTotalPrice}
+          />
+        )}
+      </main>
+    </>
   );
 };
 
