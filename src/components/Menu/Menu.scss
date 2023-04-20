@@ -5,6 +5,25 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  .cart-container {
+    position: fixed;
+    margin-top: -3260px;
+    margin-left: 950px;
+    .cart {
+      font-size: 25px;
+      border: 1px solid lightgray;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      padding: 12px 14px 12px 12px;
+      border-radius: 50px;
+      background-color: white;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+      &:hover{
+        padding: 14px 16px 14px 14px;
+        font-size: 32px;
+      }
+    }
+  }
   .links {
     position: fixed;
     margin-top: -3260px;

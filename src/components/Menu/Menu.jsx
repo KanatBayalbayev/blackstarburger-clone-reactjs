@@ -1,11 +1,15 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCartShopping,
+  faMagnifyingGlass,
+} from "@fortawesome/free-solid-svg-icons";
 import "./Menu.scss";
 import items from "./menuItems";
 import DeliveryModal from "./modals/DeliveryModal";
 import MeniItem from "./MeniItem";
 import ItemModal from "./ItemModal";
+import Cart from "./Cart";
 
 const categories = [
   "Все",
@@ -88,8 +92,73 @@ const Menu = () => {
   const handleCloseItemModal = () => {
     setOpen(false);
   };
+  const [cart, setCart] = useState(false);
+  const handleOpenCart = () => {
+    setCart(true);
+  };
+  const handleCloseCart = () => {
+    setCart(false);
+  };
+  // cart state
+  /////////////////////////////////////////////////
+  const [cartArray, setCartArray] = useState([]);
+
+  const getItemObject = (object) => {
+    if (!cartArray.some((item) => item.id === object.id)) {
+      setCartArray((cartArray) => [...cartArray, object]);
+      console.log(cartArray.some((item) => item.id === object.id));
+    }
+  };
+
+  const handleIncreaseItems = (id) => {
+    const updatedList = cartArray.map((item) => {
+      if (item.id === id) {
+        return {
+          ...item,
+          amount: item.amount + 1,
+          price: item.amount * item.price,
+        };
+      }
+      return item;
+    });
+    setCartArray(updatedList);
+  };
+  const handleDecreaseItems = (id) => {
+    const updatedList = cartArray
+      .map((item) => {
+        if (item.id === id && item.amount > 0) {
+          return { ...item, amount: item.amount - 1 };
+        }
+        return item;
+      })
+      .filter((item) => item.amount > 0);
+    setCartArray(updatedList);
+  };
+  const handleRemoveItem = (id) => {
+    const updatedList = cartArray.filter((item) => item.id !== id);
+    setCartArray(updatedList);
+  };
+
+  console.log(cartArray);
+
   return (
     <main className="menu-container">
+      <div className="cart-container">
+        <FontAwesomeIcon
+          icon={faCartShopping}
+          className="cart"
+          onClick={handleOpenCart}
+        />
+      </div>
+      {cart && (
+        <Cart
+          onClose={handleCloseCart}
+          burgers={cartArray}
+          increase={handleIncreaseItems}
+          decrease={handleDecreaseItems}
+          remove={handleRemoveItem}
+        />
+      )}
       <div className="links">
         <button onClick={() => handleDeliveryName("Glovo")}>glovo</button>
         <button onClick={() => handleDeliveryName("Chocofood")}>
@@ -124,7 +193,13 @@ const Menu = () => {
           ? all
           : particularCategory}
       </div>
-      {open && <ItemModal name={nameModal} onClose={handleCloseItemModal}/>}
+      {open && (
+        <ItemModal
+          name={nameModal}
+          onClose={handleCloseItemModal}
+          onGetItemObject={getItemObject}
+        />
+      )}
     </main>
   );
 };

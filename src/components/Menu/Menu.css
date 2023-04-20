@@ -6,6 +6,25 @@
   justify-content: center;
   align-items: center;
 }
+.menu-container .cart-container {
+  position: fixed;
+  margin-top: -3260px;
+  margin-left: 950px;
+}
+.menu-container .cart-container .cart {
+  font-size: 25px;
+  border: 1px solid lightgray;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  padding: 12px 14px 12px 12px;
+  border-radius: 50px;
+  background-color: white;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+.menu-container .cart-container .cart:hover {
+  padding: 14px 16px 14px 14px;
+  font-size: 32px;
+}
 .menu-container .links {
   position: fixed;
   margin-top: -3260px;
