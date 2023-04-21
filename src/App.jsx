@@ -11,10 +11,14 @@ import Contacts from "./components/Contacts/Contacts";
 import "./App.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleArrowUp } from "@fortawesome/free-solid-svg-icons";
+import { Helmet } from "react-helmet";
 
 const App = () => {
   const [isVisible, setIsVisible] = useState(false);
-
+  const [page, setPage] = useState("");
+  const getPage = (page) => {
+    setPage(page);
+  };
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
@@ -35,6 +39,9 @@ const App = () => {
 
   return (
     <>
+      <Helmet>
+        <title>{page}</title>
+      </Helmet>
       <BrowserRouter>
         <FontAwesomeIcon
           icon={faCircleArrowUp}
@@ -44,12 +51,12 @@ const App = () => {
 
         <Header />
         <Routes>
-          <Route index path="*" element={<Main />} />
-          <Route path="/aboutUS" element={<AboutUs />} />
-          <Route path="/menu" element={<Menu />} />
-          <Route path="/franchising" element={<Franchising />} />
-          <Route path="/vacancies" element={<Vacancies />} />
-          <Route path="/contacts" element={<Contacts />} />
+          <Route index path="main" element={<Main getPage={getPage}/>} />
+          <Route path="/aboutUS" element={<AboutUs getPage={getPage}/>} />
+          <Route path="/menu" element={<Menu getPage={getPage}/>} />
+          <Route path="/franchising" element={<Franchising getPage={getPage}/>} />
+          <Route path="/vacancies" element={<Vacancies getPage={getPage}/>} />
+          <Route path="/contacts" element={<Contacts getPage={getPage}/>} />
         </Routes>
         <Footer />
       </BrowserRouter>

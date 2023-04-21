@@ -10,6 +10,7 @@ import DeliveryModal from "./modals/DeliveryModal";
 import MeniItem from "./MeniItem";
 import ItemModal from "./ItemModal";
 import Cart from "./Cart";
+import { useLocation } from "react-router-dom";
 
 const categories = [
   "Все",
@@ -26,7 +27,10 @@ const categories = [
   "СОУСЫ",
 ];
 
-const Menu = () => {
+const Menu = (props) => {
+  let location = useLocation();
+  let changedPath = location.pathname.slice(1);
+  props.getPage(changedPath);
   const [categoryName, setCategory] = useState("Все");
   const [name, setName] = useState("");
   const [deliveryName, setDeliveryName] = useState("");

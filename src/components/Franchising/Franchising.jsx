@@ -12,8 +12,12 @@ import opening from "../../assets/franchisingImgs/opening.PNG";
 import remont from "../../assets/franchisingImgs/remont.PNG";
 import staff from "../../assets/franchisingImgs/staff.PNG";
 import "./Franchising.scss";
+import { useLocation } from "react-router-dom";
 
-const Franchising = () => {
+const Franchising = (props) => {
+  let location = useLocation();
+  let changedPath = location.pathname.slice(1);
+  props.getPage(changedPath);
   const [isValid, setIsValid] = useState("");
   const [isSent, setIsSent] = useState(false);
   const [isInputEmpty, setIsInputEmpty] = useState(false);

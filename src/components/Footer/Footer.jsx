@@ -12,7 +12,7 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="first-footer-section">
-        <a href="*">
+        <a href="main">
           {" "}
           <img src={mainLogo} alt="mainLogo" />
         </a>

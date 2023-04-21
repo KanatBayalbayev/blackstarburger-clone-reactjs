@@ -2,15 +2,19 @@ import React, { useState } from "react";
 import accordionData from "./accordion-content";
 import mainPage from "../../assets/aboutUsMain.PNG";
 import "./AboutUs.scss";
-const AboutUs = () => {
+import { useLocation} from "react-router-dom";
+const AboutUs = (props) => {
+  let location = useLocation();
+  let changedPath = location.pathname.slice(1);
+  props.getPage(changedPath);
   const [indexItem, setIndexItem] = useState(null);
-
   const handleClick = (i) => {
     setIndexItem(indexItem === i ? null : i);
   };
   return (
     <main className="aboutUS-container">
       <img src={mainPage} alt="mainPage" />
+
       <hr className="hrAboutUS" />
       <div className="accordion-container">
         <div className="accordion">

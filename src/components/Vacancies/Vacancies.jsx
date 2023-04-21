@@ -3,8 +3,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRightLong } from "@fortawesome/free-solid-svg-icons";
 import vacancyImg from "../../assets/vacancySection.PNG";
 import "./Vacancies.scss";
+import { useLocation } from "react-router-dom";
 
-const Vacancies = () => {
+const Vacancies = (props) => {
+  let location = useLocation();
+  let changedPath = location.pathname.slice(1);
+  props.getPage(changedPath);
   return (
     <main>
       <img src={vacancyImg} alt="vacancyImg" />

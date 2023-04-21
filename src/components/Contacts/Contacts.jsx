@@ -5,8 +5,12 @@ import contactImg from "../../assets/contactSection.PNG";
 import almatyMap from "../../assets/almatyMap.PNG";
 import astanaMap from "../../assets/astanaMap.PNG";
 import "./Contacts.scss";
+import { useLocation } from "react-router-dom";
 
-const Contacts = () => {
+const Contacts = (props) => {
+  let location = useLocation();
+  let changedPath = location.pathname.slice(1);
+  props.getPage(changedPath);
   const [city, setCity] = useState("almaty");
   const cityHandler = (city) => {
     setCity(city);

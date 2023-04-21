@@ -31,7 +31,7 @@ const Header = () => {
               />
             </a>
           </div>
-          <a href="*">
+          <a href="main">
             {" "}
             <img src={mainLogo} alt="main logo" className="imgLogo" />
           </a>
@@ -41,7 +41,7 @@ const Header = () => {
         <hr className="line" />
         <nav className="navbar">
           <ul className="list">
-            <NavLink className="li" to="/*">
+            <NavLink className="li" to="main">
               Главная
             </NavLink>
 

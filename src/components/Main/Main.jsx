@@ -3,9 +3,12 @@ import menuGlav from "../../assets/menuGlav.PNG";
 import franchiseGlav from "../../assets/franchiseGlav.PNG";
 import vacancyGlav from "../../assets/vacancyGlav.PNG";
 import "./Main.scss";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
-const Main = () => {
+const Main = (props) => {
+  let location = useLocation();
+  let changedPath = location.pathname.slice(1);
+  props.getPage(changedPath);
   return (
     <main className="main">
       <Link to="/menu">
