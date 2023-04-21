@@ -168,6 +168,11 @@ const Menu = () => {
         </button>
         <button onClick={() => handleDeliveryName("Wolt")}>wolt</button>
       </div>
+      {cartArray.length < 1 ? (
+        ""
+      ) : (
+        <p className="amount-of-cart">{cartArray.length}</p>
+      )}
       <div className="cart-container">
         <FontAwesomeIcon
           icon={faCartShopping}
