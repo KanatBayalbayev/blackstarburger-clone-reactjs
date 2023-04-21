@@ -102,11 +102,12 @@ const Menu = () => {
   // cart state
   /////////////////////////////////////////////////
   const [cartArray, setCartArray] = useState([]);
-  const [totalPrice, setTotalPrice] = useState(0);
+  // const [totalPrice, setTotalPrice] = useState(0);
   const [totalPriceItem, setTotalPriceItem] = useState(0);
   const handleTotalPrice = (price) => {
     setTotalPriceItem(totalPriceItem + price);
   };
+
   const getItemObject = (object) => {
     if (!cartArray.some((item) => item.id === object.id)) {
       setCartArray((cartArray) => [...cartArray, object]);
@@ -141,16 +142,23 @@ const Menu = () => {
     const updatedList = cartArray.filter((item) => item.id !== id);
     setCartArray(updatedList);
   };
-  // const totalPrice = cartArray.reduce((total, item) => total + item.price, 0);
-  const minusTotalPrice = (itemPrice) => {
-    setTotalPrice(totalPrice - itemPrice);
-  };
-  const plusTotalPrice = (itemPrice) => {
-    setTotalPrice(totalPrice + itemPrice);
-  };
-  const updateTotalPrice = (itemPrice) => {
-    setTotalPrice(totalPrice - itemPrice);
-  };
+  // const updatePlusItemPrice = {} => {
+
+  // }
+  const totalPrice = cartArray.reduce(
+    (total, item) => total + item.price * item.amount,
+    0
+  );
+  console.log(totalPrice);
+  // const minusTotalPrice = (itemPrice) => {
+  //   setTotalPrice(totalPrice - itemPrice);
+  // };
+  // const plusTotalPrice = (itemPrice) => {
+  //   setTotalPrice(totalPrice + itemPrice);
+  // };
+  // const updateTotalPrice = (itemPrice) => {
+  //   setTotalPrice(totalPrice - itemPrice);
+  // };
   return (
     <>
       <div className="links">
@@ -176,10 +184,6 @@ const Menu = () => {
             decrease={handleDecreaseItems}
             remove={handleRemoveItem}
             totalPrice={totalPrice}
-            minusTotalPrice={minusTotalPrice}
-            plusTotalPrice={plusTotalPrice}
-            totalPriceItem={totalPriceItem}
-            updateTotalPrice={updateTotalPrice}
           />
         )}
 

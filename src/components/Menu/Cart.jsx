@@ -7,25 +7,11 @@ import {
   faCirclePlus,
   faCircleXmark,
 } from "@fortawesome/free-solid-svg-icons";
-// import burger from "../../assets/menuItems/combo.PNG";
-// import burgers from "./Menu";
 
-const Cart = ({
-  onClose,
-  burgers,
-  increase,
-  decrease,
-  remove,
-  totalPrice,
-  minusTotalPrice,
-  plusTotalPrice,
-  totalPriceItem,
-  updateTotalPrice,
-}) => {
+const Cart = ({ onClose, burgers, increase, decrease, remove, totalPrice }) => {
   const [isError, setIsError] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [name, setName] = useState("");
-  const [isName, setIsName] = useState(false);
   const [mail, setMail] = useState("");
   const [phone, setPhone] = useState("");
 
@@ -34,20 +20,21 @@ const Cart = ({
     setIsError(name && mail && phone ? false : true);
     setIsSuccess(name && mail && phone ? true : false);
   };
-
+  console.log(typeof burgers);
   return (
     <>
       <Backdrop onClose={onClose} />
       {isSuccess ? (
         <div className="success-container">
-          <h3 className="success-name">Ваш заказ:</h3>
-          <hr />
+          {/* <h3 className="success-name">Ваш заказ:</h3>
+          <hr /> */}
           <p className="sentForm">Спасибо! Данные успешно отправлены.</p>
         </div>
       ) : (
         <div className="cartItem-container">
           <h3>Ваш заказ:</h3>
           <hr />
+
           {burgers.map((burger, index) => (
             <>
               <div className="item-container" key={burger.id}>
@@ -58,7 +45,7 @@ const Cart = ({
                     icon={faCircleMinus}
                     onClick={() => {
                       decrease(burger.id);
-                      minusTotalPrice(burger.price);
+                      // minusTotalPrice(burger.price);
                     }}
                     className="btn"
                   >
@@ -69,7 +56,6 @@ const Cart = ({
                     icon={faCirclePlus}
                     onClick={() => {
                       increase(burger.id);
-                      plusTotalPrice(burger.price);
                     }}
                     className="btn"
                   />
@@ -79,7 +65,6 @@ const Cart = ({
                   icon={faCircleXmark}
                   onClick={() => {
                     remove(burger.id);
-                    updateTotalPrice(burger.price);
                   }}
                   className="btn-remove"
                 />
@@ -87,8 +72,12 @@ const Cart = ({
               <hr />
             </>
           ))}
+          {burgers.length < 1 ? (
+            ""
+          ) : (
+            <p className="totalPrice">Сумма: {totalPrice} тг.</p>
+          )}
 
-          <p className="totalPrice">Сумма: {totalPriceItem + totalPrice} тг.</p>
           <form onSubmit={handleError}>
             <label htmlFor="name" className="label">
               Имя
@@ -100,7 +89,6 @@ const Cart = ({
               autoComplete="off"
               onChange={(event) => {
                 setName(event.target.value);
-                setIsName(event.target.value ? false : true);
               }}
             />
             {isError && <p className="error">Обязательное поле</p>}
@@ -141,7 +129,13 @@ const Cart = ({
                 Пожалуйста, заполните все обязательные поля
               </p>
             )}
-            <button type="submit">Оформить заказ</button>
+            {burgers.length < 1 ? (
+              <button type="submit" disabled>
+                Оформить заказ
+              </button>
+            ) : (
+              <button type="submit">Оформить заказ</button>
+            )}
           </form>
         </div>
       )}
