@@ -41,7 +41,7 @@ const Header = () => {
         <hr className="line" />
         <nav className="navbar">
           <ul className="list">
-            <NavLink className="li" to="main">
+            <NavLink className="li" to="*">
               Главная
             </NavLink>
 

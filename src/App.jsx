@@ -51,7 +51,7 @@ const App = () => {
 
         <Header />
         <Routes>
-          <Route index path="main" element={<Main getPage={getPage}/>} />
+          <Route index path="*" element={<Main getPage={getPage}/>} />
           <Route path="/aboutUS" element={<AboutUs getPage={getPage}/>} />
           <Route path="/menu" element={<Menu getPage={getPage}/>} />
           <Route path="/franchising" element={<Franchising getPage={getPage}/>} />
